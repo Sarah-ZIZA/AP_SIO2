@@ -1,0 +1,35 @@
+* {
+    padding: 0;
+    margin: 0;
+  }
+body {
+    background-color: #1196fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+  }
+  
+h1 {
+    font-size: 1.5rem;
+    align-self: center;
+    margin-top: 20px;
+    position: absolute;
+  }
+
+img {
+    margin-left: 90%;
+    margin-top: 20px;
+    width: 12em;
+    height: 9em;
+    position: relative;
+    filter: drop-shadow(20px 10px 0px #70707044);
+  }
+
+.img1 {
+    margin-left: 35%;
+    margin-top: 50px;
+    width: 12em;
+    height: 9em;
+    position: relative;
+  }
