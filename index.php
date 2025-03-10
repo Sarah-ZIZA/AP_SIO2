@@ -42,7 +42,7 @@
         try {
           // Connexion à la base de données
           $pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
-          $bdd = new PDO('mysql:host=localhost;dbname=AP_SIO2', 'root', '', $pdo_options);
+          $bdd = new PDO('mysql:host=localhost;dbname=AP_SIO2', 'root', 'sio2024', $pdo_options);
 
           // Vérifier que les champs ne sont pas vides
           if (!empty($_POST['email']) && !empty($_POST['mdp'])) {
@@ -64,9 +64,9 @@
 
                 // Rediriger selon le poste de l'utilisateur
                 if ($res['id_poste'] == 1) {
-                  header('Location: admin.php');
+                  header('Location: admin/admin_acceuil.php');
                 } else {
-                  header('Location: formulaires/formulaire.php');
+                  header('Location: formulaires/formulaires_patients_s.php');
                 }
                 exit; // Terminer le script après une redirection
               } else {
