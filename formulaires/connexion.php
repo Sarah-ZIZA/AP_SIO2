@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'AP_SIO2';
 $username = 'root';
-$password = '';
+$password = 'sio2024';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);

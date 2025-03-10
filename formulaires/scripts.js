@@ -302,3 +302,61 @@ $(document).ready(function () {
     });
   });
 });
+// scripts formulaires admin
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll(".btn");
+  const sections = document.querySelectorAll(".form");
+
+  // Boucle pour attacher les écouteurs d'événements
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+
+      if (!targetId) return; // Si le bouton n'a pas de 'data-target', on ignore l'événement
+
+      // Masquer toutes les sections
+      sections.forEach((section) => {
+        section.classList.remove("active");
+      });
+
+      // Vérifier si la section cible existe avant de l'afficher
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.classList.add("active");
+      }
+    });
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const menuItems = document.querySelectorAll(".has-submenu > a");
+
+  menuItems.forEach((item) => {
+    item.addEventListener("click", function (event) {
+      event.preventDefault(); // Empêcher le lien de naviguer ailleurs
+
+      const parentLi = this.parentElement;
+
+      // Vérifier si ce menu est déjà ouvert
+      const isOpen = parentLi.classList.contains("open");
+
+      // Fermer tous les autres menus
+      document.querySelectorAll(".has-submenu").forEach((menu) => {
+        menu.classList.remove("open");
+      });
+
+      // Ouvrir ou fermer le menu actuel
+      if (!isOpen) {
+        parentLi.classList.add("open");
+      }
+    });
+  });
+
+  // Fermer le menu si on clique ailleurs
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest(".menu")) {
+      document.querySelectorAll(".has-submenu").forEach((menu) => {
+        menu.classList.remove("open");
+      });
+    }
+  });
+});
