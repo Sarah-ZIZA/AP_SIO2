@@ -1,0 +1,416 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #1196fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 10px;
+}
+h2 {
+  font-size: 1.3rem;
+  margin: 15px 0 15px 0;
+}
+
+/*debut header*/
+img {
+  margin-left: 27%;
+  filter: drop-shadow(20px 10px 0px #70707044);
+}
+#main {
+  position: absolute;
+  width: 60%;
+  margin: auto;
+  border: 5px solid rgba(128, 128, 128, 0.181);
+  background-color: rgba(255, 255, 255, 0.315);
+  top: 0; /* Aligne avec le haut de la page */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 25px;
+  border-radius: 5px; /* Optionnel : coins arrondis */
+}
+
+#main #page1 {
+  height: 550px;
+}
+#main #page4 {
+  height: 595px;
+}
+#main #page2 {
+  height: 925px;
+}
+#main #page3 {
+  height: 810px;
+}
+#main #page5 {
+  height: 440px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Titre {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Conteneur des étapes */
+.etape-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto 20px auto; /* Centrer horizontalement et ajouter une marge en bas */
+}
+
+.etape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: lightgray;
+  font-weight: bold;
+} /* Style des étapes */
+.etape .cercle {
+  width: 40px; /* Taille du cercle */
+  height: 40px;
+  border: 4px solid lightgray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vh; /* Taille du numéro */
+  font-weight: bold;
+  color: lightgray; /* Couleur par défaut du numéro */
+}
+
+.etape.active .cercle {
+  border-color: white;
+  color: white; /* Numéros actifs deviennent blancs */
+  background-color: #d6f1ff;
+}
+
+.line {
+  width: 100px;
+  height: 2px;
+  background-color: lightgray;
+}
+
+.etape.active + .line {
+  background-color: #50b117;
+}
+
+/* Cacher les pages sauf la première */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+input:invalid,
+select:invalid {
+  border: red solid 3px;
+}
+
+input:valid,
+select:valid {
+  border-color: green;
+}
+
+/*fin header*/
+
+/*formulaires*/
+
+form .patientForm div {
+  display: flex;
+  margin: auto;
+  width: 50%;
+  height: 100%;
+  border-radius: 25px;
+  text-align: center;
+  max-width: 900px;
+  min-height: 675px;
+  max-height: 775px;
+  min-width: 300px;
+  align-items: center;
+}
+
+label {
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+input,
+select {
+  margin: 5px 0 5px 0;
+  box-sizing: border-box;
+}
+.input {
+  margin-top: 1rem;
+
+  border-radius: 10px;
+  outline: 2px solid #00a6fb;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #d6f1ff;
+  outline-offset: 3px;
+  padding: 10px 12.5px;
+  transition: all 0.2s ease;
+  width: 250px;
+  height: 40px;
+}
+
+.input:hover {
+  background-color: #fff;
+}
+
+.input:focus {
+  outline-offset: -6px;
+  background-color: #d6f1ff;
+}
+/*style input type fichier*bisarement sa ne sert a rien*/
+.file-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-input-wrapper input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.custom-file-label {
+  height: 30px;
+  width: 25%;
+  margin: 5px 0 5px 0;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.custom-file-label:hover {
+  background-color: #eee;
+}
+/*Fin*/
+
+#submit {
+  margin-top: 20px;
+  width: 50%;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #0177d9;
+  font-family: "Mukta", sans-serif;
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#submit:hover {
+  cursor: pointer;
+  background-color: #115e94;
+  color: wheat;
+}
+span {
+  color: #7d0125;
+}
+
+/*fin form*/
+
+/* couleur des input*/
+input:invalid {
+  border: 2px solid red;
+}
+
+input:valid {
+  border: 1px solid black;
+}
+/*fin couleur des input*/
+/*BOUTTONS*/
+.next {
+  min-width: 200px;
+  min-height: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #63aadc;
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgb(46 127 192);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  margin-top: 20px;
+}
+.prev {
+  min-width: 200px;
+  min-height: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #63aadc;
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgb(46 127 192);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+}
+.submit {
+  min-width: 200px;
+  min-height: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #63aadc;
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgb(46 127 192);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/*fin bouttons*/
+
+/*bouton de deconnexion*/
+.btndeco {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+
+.btndeco button {
+  font-size: 16px;
+  position: relative;
+  margin: auto;
+  padding: 1em 2.5em 1em 2.5em;
+  border: none;
+  background: #ffffff94;
+  transition: all 0.1s linear;
+  box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+}
+
+.btndeco button:active {
+  transform: scale(0.95);
+}
+
+.btndeco button span {
+  color: #464646;
+}
+
+.btndeco button .border {
+  position: absolute;
+  border: 0.15em solid #fff;
+  transition: all 0.3s 0.08s linear;
+  top: 50%;
+  left: 50%;
+  width: 9em;
+  height: 3em;
+  transform: translate(-50%, -50%);
+}
+
+.btndeco button:hover .border {
+  display: block;
+  width: 9.9em;
+  height: 3.7em;
+}
+
+.full-rounded {
+  border-radius: 2em;
+}
+/* btnuser */
+.btn-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 2.3em;
+  margin: 0.5em;
+  background: #ffffff94;
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 100;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.btn-user:hover {
+  color: black; /* Changer la couleur du texte */
+}
+
+.btn-user:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.btn-user:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+}
+
+.user-img {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.btn-user:hover .user-img {
+  fill: black; /* Changer la couleur de l'image */
+}
+
+.btn-text {
+  display: inline-block;
+  color: white;
+}
+
+.btn-user:hover .btn-text {
+  color: black; /* Changer la couleur du texte au survol */
+}
