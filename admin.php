@@ -114,7 +114,7 @@ session_start();
         <?php
         $serveur = "localhost";
         $utilisateur = "root";
-        $motDePasse = "";
+        $motDePasse = "sio2024";
         $nomBDD = "AP_SIO2";
 
         try {
@@ -233,7 +233,7 @@ session_start();
         <?php
         $serveur = "localhost";
         $utilisateur = "root";
-        $motDePasse = "";
+        $motDePasse = "sio2024";
         $nomBDD = "AP_SIO2";
 
         try {
@@ -343,7 +343,7 @@ session_start();
         try {
           $serveur = "localhost";
           $utilisateur = "root";
-          $motDePasse = "";
+          $motDePasse = "sio2024";
           $nomBDD = "AP_SIO2";
 
           $connexion = new PDO("mysql:host=$serveur;dbname=$nomBDD", $utilisateur, $motDePasse);
@@ -486,7 +486,7 @@ session_start();
         <?php
         $serveur = "localhost";
         $utilisateur = "root";
-        $motDePasse = "";
+        $motDePasse = "sio2024";
         $nomBDD = "AP_SIO2";
 
         try {

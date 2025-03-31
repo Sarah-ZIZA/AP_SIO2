@@ -3,7 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>LPFSClinique<img src="assets/img/logo.png"></title>
+  <link id="favicon" rel="shortcut icon" href="../assets/img/logo.png" type="image/x-png" />
+  <title>LPFSClinique</title>
   <link rel="stylesheet" href="assets/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet" />
 </head>
@@ -65,8 +66,10 @@
                 // Rediriger selon le poste de l'utilisateur
                 if ($res['id_poste'] == 1) {
                   header('Location: admin/admin_acceuil.php');
+                } else if($res['id_poste'] == 2) {
+                  header('Location: secretaire/secretaire_acceuil.php');
                 } else {
-                  header('Location: formulaires/formulaires_patients_s.php');
+                  header('Location: médecin/medecin_accueil.php');
                 }
                 exit; // Terminer le script après une redirection
               } else {
