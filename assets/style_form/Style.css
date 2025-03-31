@@ -1,0 +1,686 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+.logo img {
+  display: block;
+  margin: 20px 20px 0;
+  width: 10em;
+  height: 7em;
+  position: relative;
+  filter: drop-shadow(20px 10px 0px #70707044);
+  z-index: 2;
+}
+.border_top {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  background-color: #1196fa;
+  z-index: 1;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  background-color: #1196fa;
+  width: 250px;
+  height: 100vh;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow-x: hidden;
+}
+
+.boutons_nav {
+  display: flex;
+  gap: 10px;
+}
+.boutons_droite {
+  display: block;
+  flex-direction: column;
+  gap: 20px;
+  margin-right: 10px;
+}
+.boutons_id {
+  z-index: 100;
+  float: right;
+}
+/* buttons navigation From Uiverse.io by CristianMontoya98 */
+.btn {
+  width: 6.5em;
+  height: 2.3em;
+  margin: 0.5em;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.bx {
+  margin: 10px;
+  color: white;
+  border: none;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+}
+nav button:not(.boutons_id button, .next button, .prev button):hover {
+  color: black;
+}
+
+nav
+  button:not(
+    .boutons_id button,
+    .btndeco button,
+    .next button,
+    .prev button
+  ):after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+button:not(
+    .boutons_id button,
+    .btndeco button,
+    .next button,
+    .prev button
+  ):hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin: 10px;
+}
+h2 {
+  font-size: 1.3rem;
+  /* margin: 15px 0 15px 0; */
+}
+
+/*debut header*/
+img {
+  display: block;
+  margin: auto;
+  filter: drop-shadow(20px 10px 0px #70707044);
+}
+#main {
+  position: absolute;
+  width: calc(100% - 400px);
+  border: 5px solid rgba(128, 128, 128, 0.181);
+  background-color: #1195fa9b;
+  top: 55%;
+  left: 60%;
+  transform: translate(-54%, -50%);
+  padding: 5px;
+  border-radius: 5px; /* Optionnel : coins arrondis */
+  overflow-y: hidden;
+}
+
+/* #main #page1 {
+  height: 550px;
+}
+#main #page4 {
+  height: 595px;
+}
+#main #page2 {
+  height: 925px;
+}
+#main #page3 {
+  height: 810px;
+}
+#main #page5 {
+  height: 510px;
+} */
+
+.Titre {
+  text-align: center;
+  font-size: 24px;
+  /* margin-bottom: 20px; */
+}
+.forms {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: flex-start;
+  text-align: center;
+  align-items: center;
+}
+#page3 .forms {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+}
+
+/* Conteneur des étapes */
+.etape-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  /* margin: 0 auto 20px auto; Centrer horizontalement et ajouter une marge en bas */
+}
+
+.etape {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: lightgray;
+  font-weight: bold;
+} /* Style des étapes */
+.etape .cercle {
+  width: 40px; /* Taille du cercle */
+  height: 40px;
+  border: 4px solid lightgray;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3vh; /* Taille du numéro */
+  font-weight: bold;
+  color: lightgray; /* Couleur par défaut du numéro */
+}
+
+.etape.active .cercle {
+  border-color: white;
+  color: white; /* Numéros actifs deviennent blancs */
+  background-color: #d6f1ff;
+}
+
+.line {
+  width: 100px;
+  height: 2px;
+  background-color: lightgray;
+}
+
+.etape.active + .line {
+  background-color: #50b117;
+}
+
+/* Cacher les pages sauf la première */
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+input:invalid,
+select:invalid {
+  border: red solid 3px;
+}
+
+input:valid,
+select:valid {
+  border-color: green;
+}
+
+/*fin header*/
+
+/*formulaires*/
+
+form .patientForm div {
+  display: flex;
+  margin: auto;
+  width: 50%;
+  height: 100%;
+  border-radius: 25px;
+  text-align: center;
+  max-width: 900px;
+  min-height: 675px;
+  max-height: 775px;
+  min-width: 300px;
+  align-items: center;
+}
+.form {
+  display: none; /* Masquer par défaut */
+}
+
+.form.active {
+  display: block; /* Afficher lorsque la classe active est ajoutée */
+}
+label {
+  padding-top: 10px;
+  font-size: 20px;
+}
+
+input,
+select {
+  margin: 5px 0 5px 0;
+  box-sizing: border-box;
+}
+.input {
+  margin-top: 1rem;
+
+  border-radius: 10px;
+  outline: 2px solid #00a6fb;
+  border: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #d6f1ff;
+  outline-offset: 3px;
+  padding: 10px 12.5px;
+  transition: all 0.2s ease;
+  width: 250px;
+  height: 40px;
+}
+
+.input:hover {
+  background-color: #fff;
+}
+
+.input:focus {
+  outline-offset: -6px;
+  background-color: #d6f1ff;
+}
+/*style input type fichier*bisarement sa ne sert a rien*/
+.file-input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-input-wrapper input[type="file"] {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.custom-file-label {
+  height: 30px;
+  width: 25%;
+  margin: 5px 0 5px 0;
+  padding: 0 10px;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.custom-file-label:hover {
+  background-color: #eee;
+}
+/*Fin*/
+
+#submit {
+  margin-top: 20px;
+  width: 50%;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #0177d9;
+  font-family: "Mukta", sans-serif;
+  border: none;
+  color: white;
+  text-decoration: none;
+}
+#submit:hover {
+  cursor: pointer;
+  background-color: #115e94;
+  color: wheat;
+}
+span {
+  color: #7d0125;
+}
+
+/*fin form*/
+
+/* couleur des input*/
+input:invalid {
+  border: 2px solid red;
+}
+
+input:valid {
+  border: 1px solid black;
+}
+/*fin couleur des input*/
+/*BOUTTONS*/
+.next {
+  min-width: 200px;
+  min-height: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #63aadc;
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgb(46 127 192);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  margin-top: 20px;
+}
+.prev {
+  min-width: 200px;
+  min-height: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #63aadc;
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgb(46 127 192);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  margin-top: 20px;
+}
+.submit {
+  min-width: 200px;
+  min-height: 10px;
+  font-family: "Nunito", sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-weight: 700;
+  color: #ffffff;
+  background: #63aadc;
+  border: none;
+  border-radius: 1000px;
+  box-shadow: 12px 12px 24px rgb(46 127 192);
+  transition: all 0.3s ease-in-out 0s;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/*fin bouttons*/
+
+/*button deconnexion de nav id*/
+
+.btndeco button {
+  top: 13px;
+  font-size: 13px;
+  position: relative;
+  margin: auto;
+  padding: 1em 2.5em 1em 2.5em;
+  border: none;
+  background: #ffffff94;
+  transition: all 0.1s linear;
+  box-shadow: 0 0.4em 1em rgba(0, 0, 0, 0.1);
+}
+
+.btndeco button:active {
+  transform: scale(0.95);
+}
+
+.btndeco button span {
+  color: #464646;
+}
+
+.btndeco button .border {
+  position: absolute;
+  border: 0.15em solid #fff;
+  transition: all 0.3s 0.08s linear;
+  top: 50%;
+  left: 50%;
+  width: 9em;
+  height: 3em;
+  transform: translate(-50%, -50%);
+}
+
+.btndeco button:hover .border {
+  display: block;
+  width: 9.9em;
+  height: 3.7em;
+}
+
+.full-rounded {
+  border-radius: 2em;
+}
+/* btnuser */
+.btn-user {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 2.3em;
+  margin: 0.5em;
+  background: #1196fa;
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.btn-user:hover {
+  color: #1abc9c; /* Changer la couleur du texte */
+}
+
+/* .btn-user:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.5s;
+}
+
+.btn-user:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+} */
+
+.user-img {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+.btn-user:hover .user-img {
+  fill: black; /* Changer la couleur de l'image */
+}
+
+.btn-text {
+  display: inline-block;
+  color: white;
+}
+
+.btn-user:hover .btn-text {
+  color: black; /* Changer la couleur du texte au survol */
+}
+.menu {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1em;
+}
+
+.menu > li {
+  width: 100%;
+  position: relative;
+}
+
+.menu > li > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  text-decoration: none;
+  color: white;
+
+  transition: background 0.3s;
+  border-radius: 5px;
+}
+
+.menu > li > a:hover {
+  background-color: #1abc9c;
+}
+
+/* Icône du menu déroulant */
+.toggle-icon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Rotation de l'icône quand le menu est ouvert */
+.has-submenu.open > a .toggle-icon {
+  transform: rotate(180deg);
+}
+.has-submenu span {
+  color: #1abc9ccf;
+}
+/* Sous-menus */
+.submenu {
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 10px;
+  margin: 0;
+
+  border-radius: 5px;
+}
+
+.submenu li {
+  width: 100%;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+
+  transition: background 0.3s;
+}
+
+.submenu a:hover {
+  background-color: #1abc9c;
+}
+
+/* Affichage du sous-menu avec animation */
+.has-submenu.open .submenu {
+  display: flex;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Boutons à droite */
+.boutons_droite {
+  margin-top: auto;
+  width: 100%;
+}
+
+.btn-user:hover {
+  background-color: #1abc9c;
+}
+/* Style de la modale */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenu de la modale */
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  text-align: center;
+}
+
+/* Bouton de fermeture */
+/* .close {
+  float: right;
+  font-size: 34px;
+  cursor: pointer;
+} */
+#imprimer_pdf {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+#imprimer_pdf button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 2.3em;
+  background: #1196fa;
+  padding: 10px 15px;
+  color: white;
+  border: none;
+  border-radius: 0.625em;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
